@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>परीक्षा पैनल</title>
+  <script>
+    function showResult(event) {
+      event.preventDefault();
+      window.open("result.html", "_blank");
+    }
+  </script>
+</head>
+<body style="margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #e8f5e9; color: #333;">
+
+  <header style="background-color: #388e3c; color: white; text-align: center; padding: 30px 20px;">
+    <h1 style="margin: 0;">📘 ऑनलाइन परीक्षा पैनल</h1>
+    <p>कृपया सभी प्रश्नों के उत्तर दें</p>
+  </header>
+
+  <main style="max-width: 700px; background: white; margin: 40px auto; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+
+    <form onsubmit="showResult(event)">
+      <div style="margin-bottom: 25px;">
+        <p><strong>1. कंप्यूटर का फुल फॉर्म क्या है?</strong></p>
+        <label><input type="radio" name="q1"> Common Operating Machine Used for Technical and Educational Research</label><br>
+        <label><input type="radio" name="q1"> Central Operating Machine Used for Testing</label>
+      </div>
+
+      <div style="margin-bottom: 25px;">
+        <p><strong>2. CPU का कार्य क्या है?</strong></p>
+        <label><input type="radio" name="q2"> डेटा स्टोर करना</label><br>
+        <label><input type="radio" name="q2"> प्रोसेसिंग करना</label>
+      </div>
+
+      <div style="margin-bottom: 25px;">
+        <p><strong>3. Python किस प्रकार की भाषा है?</strong></p>
+        <label><input type="radio" name="q3"> प्रोग्रामिंग भाषा</label><br>
+        <label><input type="radio" name="q3"> गेमिंग सॉफ्टवेयर</label>
+      </div>
+
+      <div style="margin-bottom: 25px;">
+        <p><strong>4. MS Word का उपयोग किस लिए होता है?</strong></p>
+        <label><input type="radio" name="q4"> दस्तावेज़ बनाने के लिए</label><br>
+        <label><input type="radio" name="q4"> मूवी चलाने के लिए</label>
+      </div>
+
+      <div style="margin-bottom: 25px;">
+        <p><strong>5. इंटरनेट एक्सेस करने के लिए क्या चाहिए?</strong></p>
+        <label><input type="radio" name="q5"> ब्राउज़र</label><br>
+        <label><input type="radio" name="q5"> फोटोशॉप</label>
+      </div>
+
+      <button type="submit" style="background-color: #388e3c; color: white; padding: 12px 25px; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">
+        परीक्षा सबमिट करें
+      </button>
+    </form>
+
+  </main>
+</body>
+</html>
