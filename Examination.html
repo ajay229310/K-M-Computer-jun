@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>कंप्यूटर कोर्स परीक्षा - रजिस्ट्रेशन</title>
+  <script>
+    function showExamPanel(event) {
+      event.preventDefault();
+      alert("🎉 रजिस्ट्रेशन सफलतापूर्वक हो गया!");
+      window.open("exam.html", "_blank");
+    }
+  </script>
+</head>
+<body style="margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #f0f4f8; color: #333;">
+
+  <header style="background: #4CAF50; color: white; text-align: center; padding: 30px 20px;">
+    <h1 style="margin: 0;">कंप्यूटर कोर्स परीक्षा प्रणाली</h1>
+    <p>ऑनलाइन रजिस्ट्रेशन और परीक्षा देने की सुविधा</p>
+  </header>
+
+  <main style="max-width: 600px; background: white; margin: 40px auto; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+
+    <h2 style="color: #4CAF50; margin-bottom: 20px;">📋 परीक्षा की जानकारी</h2>
+    <ul style="padding-left: 20px; line-height: 1.8;">
+      <li>प्रकार: ऑनलाइन परीक्षा</li>
+      <li>समय: 15 मिनट</li>
+      <li>प्रश्नों की संख्या: 5</li>
+      <li>उत्तीर्ण अंक: 50%</li>
+      <li>प्रमाणपत्र: उत्तीर्ण होने पर मिलेगा</li>
+    </ul>
+
+    <hr style="margin: 30px 0;">
+
+    <h2 style="color: #4CAF50; margin-bottom: 20px;">📝 रजिस्ट्रेशन फॉर्म</h2>
+    <form onsubmit="showExamPanel(event)">
+      <label>पूरा नाम:</label><br>
+      <input type="text" name="name" required placeholder="अपना नाम लिखें" style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;"><br>
+
+      <label>मोबाइल नंबर:</label><br>
+      <input type="text" name="mobile" required placeholder="मोबाइल नंबर" style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;"><br>
+
+      <label>कोर्स चुनें:</label><br>
+      <select name="course" required style="width: 100%; padding: 10px; margin-bottom: 25px; border-radius: 5px; border: 1px solid #ccc;">
+        <option value="">-- कोर्स चुनें --</option>
+        <option>DCA</option>
+        <option>ADCA</option>
+        <option>CCC</option>
+        <option>Tally</option>
+        <option>Basic Computer</option>
+        <option>Web Development</option>
+        <option>Python Programming</option>
+      </select><br>
+
+      <button type="submit" style="background-color: #4CAF50; color: white; padding: 12px 25px; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">
+        रजिस्टर करें
+      </button>
+    </form>
+  </main>
+
+</body>
+</html>
