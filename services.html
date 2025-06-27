@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K M Computer</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="logo">K M Computer</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="auth-buttons">
+      <button onclick="openModal('loginModal')">Login</button>
+      <button onclick="openModal('signupModal')">Signup</button>
+    </div>
+  </header>
+
+  <!-- Hero/Banner Section -->
+  <section class="hero">
+    <h1>Welcome to K M Computer</h1>
+    <p>Your trusted store for computers, accessories, and IT services in Deeh, Raebareli</p>
+  </section>
+
+  <section class="services-section">
+    <h2>🔧 Computer Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Computer & Laptop Repair</h3>
+        <p>Hardware & software issues resolved quickly by our expert technicians.</p>
+      </div>
+      <div class="service-card">
+        <h3>OS & Software Installation</h3>
+        <p>Windows, Linux, Antivirus, MS Office, Tally, and more.</p>
+      </div>
+      <div class="service-card">
+        <h3>Networking & CCTV</h3>
+        <p>LAN/WiFi setup, security camera installation and maintenance.</p>
+      </div>
+      <div class="service-card">
+        <h3>Data Recovery & Backup</h3>
+        <p>Recover lost data from hard drives, pen drives, and memory cards.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="services-section">
+    <h2>📑 Jan Seva Kendra Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Aadhar Services</h3>
+        <p>Aadhar correction, print, and biometric update.</p>
+      </div>
+      <div class="service-card">
+        <h3>Pan Card Apply</h3>
+        <p>New PAN, correction, reissue & status tracking.</p>
+      </div>
+      <div class="service-card">
+        <h3>Online Forms Filling</h3>
+        <p>Scholarships, Ration Card, Birth Certificate, Income Certificate, etc.</p>
+      </div>
+      <div class="service-card">
+        <h3>Banking & Recharge</h3>
+        <p>AEPS, cash withdrawal, balance check, mobile recharge, DTH.</p>
+      </div>
+      <div class="service-card">
+        <h3>Passport & Driving License</h3>
+        <p>Apply for new or renew passport and driving licenses easily.</p>
+      </div>
+      <div class="service-card">
+        <h3>Photo & Document Work</h3>
+        <p>Color printout, passport-size photo, scanning, lamination, etc.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 K M Computer, Deeh, Raebareli. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('loginModal')">&times;</span>
+      <h2>Login</h2>
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <button>Login</button>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('signupModal')">&times;</span>
+      <h2>Signup</h2>
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <button>Create Account</button>
+    </div>
+  </div>
+</body>
+</html>

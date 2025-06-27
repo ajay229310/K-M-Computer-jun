@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K M Computer</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="logo">K M Computer</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="auth-buttons">
+      <button onclick="openModal('loginModal')">Login</button>
+      <button onclick="openModal('signupModal')">Signup</button>
+    </div>
+  </header>
+
+  <!-- Hero/Banner Section -->
+  <section class="hero">
+    <h1>Welcome to K M Computer</h1>
+    <p>Your trusted store for computers, accessories, and IT services in Deeh, Raebareli</p>
+  </section>
+
+    <!-- About Section -->
+     <section class="about-section">
+  <div class="about-container">
+    <h2>हमारे बारे में</h2>
+    <p>
+      <strong>K M Computer</strong> – Deeh, Raebareli में स्थित एक भरोसेमंद और आधुनिक कंप्यूटर सेवा केंद्र है। हमारे यहाँ कंप्यूटर और आईटी से जुड़ी सभी सुविधाएं एक ही छत के नीचे उपलब्ध हैं।
+    </p>
+
+    <p>हम निम्नलिखित सेवाएं प्रदान करते हैं:</p>
+    <ul>
+      <li>ब्रांडेड लैपटॉप और डेस्कटॉप की बिक्री</li>
+      <li>कंप्यूटर रिपेयर, फॉर्मेटिंग और सॉफ्टवेयर इंस्टॉलेशन</li>
+      <li>नेटवर्किंग, प्रिंटर सेटअप और आईटी समाधान</li>
+      <li>जन सेवा केंद्र (CSC) के अंतर्गत सभी सरकारी सेवाएं</li>
+    </ul>
+
+    <p><strong>जन सेवा केंद्र</strong> के अंतर्गत हम प्रदान करते हैं:</p>
+    <ul>
+      <li>आधार कार्ड अपडेट/प्रिंट</li>
+      <li>पैन कार्ड आवेदन</li>
+      <li>बिजली बिल जमा</li>
+      <li>बैंकिंग, PM Kisan, पेंशन, जन्म प्रमाण पत्र, जाति/निवास प्रमाण पत्र आदि</li>
+    </ul>
+
+    <p>
+      हमारी प्राथमिकता है – <strong>ईमानदारी, गुणवत्तापूर्ण सेवा और ग्राहक संतुष्टि</strong>।
+      <br><br>
+      आज ही पधारें – <strong>K M Computer, Deeh, Raebareli</strong> में।
+    </p>
+  </div>
+</section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 K M Computer, Deeh, Raebareli. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('loginModal')">&times;</span>
+      <h2>Login</h2>
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <button>Login</button>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('signupModal')">&times;</span>
+      <h2>Signup</h2>
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <button>Create Account</button>
+    </div>
+  </div>
+
+ 
+
+
+</body>
+</html>
