@@ -1,103 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>K M Computer</title>
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="script.js"></script>
-</head>
-<body>
-  <!-- Header Section -->
-  <header class="header">
-    <div class="logo">K M Computer</div>
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="services.html">Services</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="auth-buttons">
-      <button onclick="openModal('loginModal')">Login</button>
-      <button onclick="openModal('signupModal')">Signup</button>
-    </div>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>K M Computer</title>
 
-  <!-- Hero/Banner Section -->
-  <section class="hero">
-    <h1>Welcome to K M Computer</h1>
-    <p>Your trusted store for computers, accessories, and IT services in Deeh, Raebareli</p>
-  </section>
-<!-- Home Page Main Section: K M Computer -->
-<section class="home-main-section">
-  <!-- Hero Banner -->
-  <div class="hero-banner">
-    <h1>Welcome to <span>K M Computer</span></h1>
-    <p>Your one-stop solution for Computers, Services & Jan Seva Kendra</p>
-  </div>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+      }
 
-  <!-- Offer Banner (Daily Update Ready) -->
-  <div class="offer-banner">
-    <marquee behavior="scroll" direction="left">🔥 Today’s Special Offer: Flat 10% OFF on All Laptop Repairs! | Get Free Antivirus on Purchase of Any Desktop 🔥</marquee>
-  </div>
+      .header {
+        background-color: #2c3e50;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        flex-wrap: wrap;
+      }
 
-  <!-- Services Section -->
-  <div class="services-section">
-    <h2>हमारी सेवाएं</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <img src="https://via.placeholder.com/300x180?text=Computer+Sales" alt="Computer Sales">
-        <h3>Computer Sales</h3>
-        <p>Branded laptops & desktops at best prices</p>
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .nav-links a {
+        color: #fff;
+        margin: 0 10px;
+        text-decoration: none;
+      }
+
+      .auth-buttons button {
+        margin-left: 10px;
+        padding: 8px 15px;
+        background-color: #1abc9c;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .hero {
+        height: 60vh;
+        color: white;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-size: cover;
+        background-position: center;
+        transition: background-image 1s ease-in-out;
+        padding: 0 20px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero p {
+        font-size: 18px;
+        margin-top: 10px;
+      }
+
+      #auto-type {
+        border-right: 2px solid white;
+        white-space: nowrap;
+        overflow: hidden;
+        display: inline-block;
+        font-weight: bold;
+        color: #56f1cd;
+      }
+
+      .hero-banner,
+      .offer-banner {
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .offer-banner {
+        background-color: #f39c12;
+        color: white;
+        font-weight: bold;
+      }
+
+      .services-section {
+        padding: 60px 20px;
+        background-color: #eef1f4;
+        text-align: center;
+      }
+
+      .services-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 30px;
+      }
+
+      .service-card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        width: 280px;
+        padding: 20px;
+      }
+
+      .service-card img {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 15px;
+      }
+
+      .about-section {
+        padding: 60px 20px;
+        background-color: #fff;
+        text-align: center;
+      }
+
+      .about-section p {
+        max-width: 800px;
+        margin: auto;
+        font-size: 18px;
+        color: #555;
+      }
+
+      footer {
+        background-color: #2c3e50;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .modal-content {
+        background-color: #fff;
+        margin: 10% auto;
+        padding: 30px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        position: relative;
+      }
+
+      .modal-content input {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+      }
+
+      .modal-content button {
+        padding: 10px 20px;
+        background-color: #1abc9c;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 24px;
+        cursor: pointer;
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header Section -->
+    <header class="header">
+      <div class="logo">K M Computer</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="Examination.html">Online Exam</a>
+      </nav>
+      <div class="auth-buttons">
+        <button onclick="openModal('loginModal')">Login</button>
+        <button onclick="openModal('signupModal')">Signup</button>
       </div>
-      <div class="service-card">
-        <img src="https://via.placeholder.com/300x180?text=Repair+Service" alt="Repair">
-        <h3>Computer Repair</h3>
-        <p>Quick and trusted repair for all devices</p>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <h1>Welcome to <span id="auto-type"></span></h1>
+      <p>
+        Your trusted store for computers, accessories, and IT services in Deeh,
+        Raebareli
+      </p>
+    </section>
+
+    <!-- Home Page Main Section: K M Computer -->
+    <section class="home-main-section">
+      <div class="offer-banner">
+        <marquee behavior="scroll" direction="left"
+          >🔥 Today’s Special Offer: Flat 10% OFF on All Laptop Repairs! | Get
+          Free Antivirus on Purchase of Any Desktop 🔥</marquee
+        >
       </div>
-      <div class="service-card">
-        <img src="https://via.placeholder.com/300x180?text=Jan+Seva+Kendra" alt="Jan Seva">
-        <h3>Jan Seva Kendra</h3>
-        <p>Aadhar, PAN, Bill Payments, Certificates, and more</p>
+
+      <div class="services-section">
+        <h2>हमारी सेवाएं</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <img
+              src="https://www.downtowncomputers.com/wp-content/uploads/2023/04/Your-One-Stop-Service-Shop-for-All-Your-Tech-Needs-39.jpeg"
+              alt="Computer Sales"
+            />
+            <h3>Computer Sales</h3>
+            <p>Branded laptops & desktops at best prices</p>
+          </div>
+          <div class="service-card">
+            <img
+              src="https://it.cornell.edu/sites/default/files/styles/article_banner/public/itc-drupal10-images/Hardware%20landing%20page.png?h=76c528b5&itok=TE4W1J3m"
+              alt="Repair"
+            />
+            <h3>Computer Repair</h3>
+            <p>Quick and trusted repair for all devices</p>
+          </div>
+          <div class="service-card">
+            <img
+              src="https://content.jdmagicbox.com/comp/def_content/pan-card-consultants/shutterstock-483991774-pan-card-consultants-2-it52y.jpg"
+              alt="Jan Seva"
+            />
+            <h3>Jan Seva Kendra</h3>
+            <p>Aadhar, PAN, Bill Payments, Certificates, and more</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-section">
+        <h2>हमारे बारे में</h2>
+        <p>
+          <strong>K M Computer</strong> – Deeh, Raebareli में स्थित एक भरोसेमंद
+          और आधुनिक कंप्यूटर सेवा केंद्र है। हमारे यहाँ कंप्यूटर और आईटी से
+          जुड़ी सभी सुविधाएं एक ही छत के नीचे उपलब्ध हैं। हम जन सेवा केंद्र के
+          माध्यम से भी लोगों को सरकार की सेवाएं आसान और सुलभ तरीके से प्रदान
+          करते हैं।
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 K M Computer, Deeh, Raebareli. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('loginModal')">&times;</span>
+        <h2>Login</h2>
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button>Login</button>
       </div>
     </div>
-  </div>
 
-  <!-- About Shop Section -->
-  <div class="about-section">
-    <h2>हमारे बारे में</h2>
-    <p><strong>K M Computer</strong> – Deeh, Raebareli में स्थित एक भरोसेमंद और आधुनिक कंप्यूटर सेवा केंद्र है। हमारे यहाँ कंप्यूटर और आईटी से जुड़ी सभी सुविधाएं एक ही छत के नीचे उपलब्ध हैं। हम जन सेवा केंद्र के माध्यम से भी लोगों को सरकार की सेवाएं आसान और सुलभ तरीके से प्रदान करते हैं।</p>
-  </div>
-</section>
-
-
-  <!-- Footer Section -->
-  <footer>
-    <p>&copy; 2025 K M Computer, Deeh, Raebareli. All Rights Reserved.</p>
-  </footer>
-
-  <!-- Login Modal -->
-  <div id="loginModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('loginModal')">&times;</span>
-      <h2>Login</h2>
-      <input type="email" placeholder="Email" required />
-      <input type="password" placeholder="Password" required />
-      <button>Login</button>
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('signupModal')">&times;</span>
+        <h2>Signup</h2>
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button>Create Account</button>
+      </div>
     </div>
-  </div>
 
-  <!-- Signup Modal -->
-  <div id="signupModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('signupModal')">&times;</span>
-      <h2>Signup</h2>
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email" required />
-      <input type="password" placeholder="Password" required />
-      <button>Create Account</button>
-    </div>
-  </div>
-</body>
+    <!-- JavaScript -->
+    <script>
+      // Typing animation
+      const text = "Km Computers";
+      let i = 0;
+      let isDeleting = false;
+      let speed = 100;
+      const target = document.getElementById("auto-type");
+
+      function typeEffect() {
+        if (isDeleting) {
+          target.textContent = text.substring(0, i--);
+        } else {
+          target.textContent = text.substring(0, i++);
+        }
+
+        if (!isDeleting && i === text.length) {
+          isDeleting = true;
+          speed = 100;
+        } else if (isDeleting && i === 0) {
+          isDeleting = false;
+          speed = 200;
+        }
+
+        setTimeout(typeEffect, speed);
+      }
+
+      typeEffect();
+
+      // Background image changer
+      const hero = document.getElementById("hero");
+      const images = [
+        "laptop-murjp1nk4lp1idlt.jpg",
+        "photo-1513957391641-38811fee23f9.jpeg",
+        "photo-1606568156390-8f4edb5ef31f.jpeg",
+      ];
+      let bgIndex = 0;
+
+      function changeBackground() {
+        hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${images[bgIndex]}')`;
+        bgIndex = (bgIndex + 1) % images.length;
+      }
+
+      changeBackground();
+      setInterval(changeBackground, 3000);
+
+      // Modal open/close
+      function openModal(id) {
+        document.getElementById(id).style.display = "block";
+      }
+
+      function closeModal(id) {
+        document.getElementById(id).style.display = "none";
+      }
+    </script>
+  </body>
 </html>
