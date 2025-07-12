@@ -1,11 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>K M Computer</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - K. M. Computer and Jan Seva Kendr</title>
+    <link rel="stylesheet" href="styles.css">
   <script defer src="script.js"></script>
+    <link rel="stylesheet" href="static/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+
+        /* Shop Header */
+        .shop-header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .shop-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .shop-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .shop-tagline {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        .main-nav {
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu li a {
+            display: block;
+            padding: 15px 20px;
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .nav-menu li a:hover,
+        .nav-menu li a.active {
+            color: #3498db;
+            background: #f8f9fa;
+        }
+
+        /* Special Offers Banner */
+        .offer-banner {
+            background: linear-gradient(90deg, #e74c3c, #f39c12);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+
+        .offer-text {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .offer-tag {
+            background: white;
+            color: #e74c3c;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+            font-weight: 700;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        /* Product Categories */
+        .category-tabs {
+            background: #f1f1f1;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .category-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            overflow-x: auto;
+        }
+
+        .category-tab {
+            padding: 8px 20px;
+            margin-right: 10px;
+            background: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid #ddd;
+        }
+
+        .category-tab:hover,
+        .category-tab.active {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 40px 0;
+        }
+
+        .products-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background: #3498db;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #e74c3c;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            z-index: 2;
+        }
+
+        .offer-badge {
+            background: #f39c12;
+        }
+
+        .new-badge {
+            background: #2ecc71;
+        }
+
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            color: #3498db;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .current-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #e74c3c;
+        }
+
+        .original-price {
+            font-size: 0.9rem;
+            text-decoration: line-through;
+            color: #95a5a6;
+            margin-left: 10px;
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .add-to-cart {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+            flex-grow: 1;
+        }
+
+        .add-to-cart:hover {
+            background: #2980b9;
+        }
+
+        .wishlist-btn {
+            background: none;
+            border: none;
+            color: #95a5a6;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: color 0.3s;
+        }
+
+        .wishlist-btn:hover {
+            color: #e74c3c;
+        }
+
+        /* Special Offer Ribbon */
+        .offer-ribbon {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: #e74c3c;
+            color: white;
+            padding: 3px 30px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .shop-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .shop-name {
+                font-size: 1.5rem;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-menu li a {
+                padding: 10px 15px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .shop-name {
+                font-size: 1.3rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
   <!-- Header Section -->
@@ -23,108 +384,362 @@
       <button onclick="openModal('signupModal')">Signup</button>
     </div>
   </header>
-
-  <!-- Hero/Banner Section -->
-  <section class="hero">
-    <h1>Welcome to K M Computer</h1>
-    <p>Your trusted store for computers, accessories, and IT services in Deeh, Raebareli</p>
-  </section>
-
-    <!-- product add Section -->
-
-    <section class="product-groups">
-  <!-- Laptop Section -->
-  <div class="product-category">
-    <h2>Laptops</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x200?text=HP+i5+Laptop" alt="">
-        <h3>HP i5 Laptop</h3>
-        <p>8GB RAM, 512GB SSD - ₹49,999</p>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x200?text=Lenovo+Ryzen+5" alt="">
-        <h3>Lenovo Ryzen 5</h3>
-        <p>14” Display, 512GB SSD - ₹46,999</p>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x200?text=Dell+Inspiron" alt="">
-        <h3>Dell Inspiron</h3>
-        <p>i3 11th Gen, Windows 11 - ₹42,999</p>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x200?text=Acer+i7" alt="">
-        <h3>Acer Aspire i7</h3>
-        <p>Best for gaming & editing - ₹55,000</p>
-      </div>
+    <!-- Shop Header -->
+   <!-- Promotional Header Bar -->
+<div class="promo-header">
+    <div class="promo-container">
+        <div class="promo-marquee">
+            <div class="promo-item">
+                <span class="promo-badge">🔥 HOT DEAL</span>
+                <span>UltraBook Pro X1 - Just ₹89,999 (10% OFF) - Limited Stock!</span>
+            </div>
+            <div class="promo-item">
+                <span class="promo-badge">🆕 NEW</span>
+                <span>Nova Gaming Beast - Special Price ₹1,25,999 - Free Accessories Worth ₹5,000!</span>
+            </div>
+            <div class="promo-item">
+                <span class="promo-badge">🎧 SALE</span>
+                <span>Boom Headphones 21% OFF - Only ₹5,499 - Today Only!</span>
+            </div>
+        </div>
+        <div class="promo-cta">
+            <a href="#offers" class="promo-btn">
+                <i class="fas fa-bolt"></i> View All Offers
+            </a>
+        </div>
     </div>
-  </div>
+</div>
 
-  <!-- Accessories Section -->
-  <div class="product-category">
-    <h2>Computer Accessories</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x200?text=Keyboard+Mouse" alt="">
-        <h3>Wireless Combo</h3>
-        <p>Keyboard + Mouse - ₹1,299</p>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x200?text=24+inch+Monitor" alt="">
-        <h3>Dell 24" Monitor</h3>
-        <p>Full HD, Slim Bezel - ₹8,999</p>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x200?text=1TB+HDD" alt="">
-        <h3>Seagate 1TB HDD</h3>
-        <p>Fast data storage - ₹3,199</p>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x200?text=8GB+RAM" alt="">
-        <h3>8GB DDR4 RAM</h3>
-        <p>Multitasking support - ₹2,499</p>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x200?text=Printer" alt="">
-        <h3>HP DeskJet Printer</h3>
-        <p>All-in-One Inkjet - ₹5,999</p>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x200?text=Webcam" alt="">
-        <h3>1080p Webcam</h3>
-        <p>HD video conferencing - ₹1,499</p>
-      </div>
+<style>
+    /* Promotional Header Styles */
+    .promo-header {
+        background: linear-gradient(90deg, #2c3e50, #3498db);
+        color: white;
+        padding: 12px 0;
+        font-size: 0.95rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .promo-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .promo-marquee {
+        flex: 1;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        height: 24px;
+    }
+    
+    .promo-item {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        transition: all 0.5s ease;
+        white-space: nowrap;
+    }
+    
+    .promo-item.active {
+        opacity: 1;
+    }
+    
+    .promo-badge {
+        background: #e74c3c;
+        padding: 2px 8px;
+        border-radius: 4px;
+        margin-right: 15px;
+        font-weight: 600;
+        font-size: 0.8rem;
+    }
+    
+    .promo-cta {
+        margin-left: 30px;
+    }
+    
+    .promo-btn {
+        background: #f39c12;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.85rem;
+        transition: all 0.3s;
+        display: inline-flex;
+        align-items: center;
+    }
+    
+    .promo-btn i {
+        margin-right: 5px;
+    }
+    
+    .promo-btn:hover {
+        background: #e67e22;
+        transform: translateY(-2px);
+    }
+    
+    @media (max-width: 768px) {
+        .promo-container {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .promo-marquee {
+            margin-bottom: 10px;
+            justify-content: center;
+        }
+        
+        .promo-item {
+            white-space: normal;
+            position: static;
+            opacity: 1;
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+        
+        .promo-cta {
+            margin-left: 0;
+        }
+    }
+</style>
+
+<script>
+    // Promo marquee animation
+    document.addEventListener('DOMContentLoaded', function() {
+        const promoItems = document.querySelectorAll('.promo-item');
+        let currentItem = 0;
+        
+        // Show first item initially
+        promoItems[currentItem].classList.add('active');
+        
+        // Rotate items every 5 seconds
+        setInterval(function() {
+            promoItems[currentItem].classList.remove('active');
+            currentItem = (currentItem + 1) % promoItems.length;
+            promoItems[currentItem].classList.add('active');
+        }, 5000);
+    });
+</script>
+
+    <!-- Main Navigation -->
+    <body>
+  
+
+    <!-- Special Offers Banner -->
+    <div class="offer-banner">
+        <div class="offer-text">
+            🎉 Special Festival Offers! Flat 20% Off on All Laptops 
+            <span class="offer-tag">LIMITED TIME</span>
+        </div>
     </div>
-  </div>
-</section>
 
-
-  <!-- Footer Section -->
-  <footer>
-    <p>&copy; 2025 K M Computer, Deeh, Raebareli. All Rights Reserved.</p>
-  </footer>
-
-  <!-- Login Modal -->
-  <div id="loginModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('loginModal')">&times;</span>
-      <h2>Login</h2>
-      <input type="email" placeholder="Email" required />
-      <input type="password" placeholder="Password" required />
-      <button>Login</button>
+    <!-- Product Categories -->
+    <div class="category-tabs">
+        <div class="category-container">
+            <div class="category-tab active" data-category="all">All Products</div>
+            <div class="category-tab" data-category="laptops">Laptops</div>
+            <div class="category-tab" data-category="desktops">Desktops</div>
+            <div class="category-tab" data-category="accessories">Accessories</div>
+            <div class="category-tab" data-category="components">Components</div>
+            <div class="category-tab" data-category="sale">Sale</div>
+            <div class="category-tab" data-category="new">New Arrivals</div>
+        </div>
     </div>
-  </div>
 
-  <!-- Signup Modal -->
-  <div id="signupModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('signupModal')">&times;</span>
-      <h2>Signup</h2>
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email" required />
-      <input type="password" placeholder="Password" required />
-      <button>Create Account</button>
-    </div>
-  </div>
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="products-container">
+            <h2 class="section-title">Our Products</h2>
+            
+            <div class="products-grid" id="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card" data-category="laptops" data-tags="new,offer">
+                    <div class="offer-ribbon">20% OFF</div>
+                    <div class="product-img">
+                        <span class="product-badge new-badge">New</span>
+                        <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="UltraBook Pro X1">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Laptop</span>
+                        <h3 class="product-title">UltraBook Pro X1</h3>
+                        <div class="product-price">
+                            <span class="current-price">₹89,999</span>
+                            <span class="original-price">₹99,999</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card" data-category="desktops" data-tags="best-seller">
+                    <div class="product-img">
+                        <span class="product-badge">Best Seller</span>
+                        <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Nova Gaming Beast">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Desktop</span>
+                        <h3 class="product-title">Nova Gaming Beast</h3>
+                        <div class="product-price">
+                            <span class="current-price">₹1,25,999</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card" data-category="accessories" data-tags="sale,offer">
+                    <div class="offer-ribbon">15% OFF</div>
+                    <div class="product-img">
+                        <span class="product-badge">Sale</span>
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Boom Wireless Headphones">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Accessory</span>
+                        <h3 class="product-title">Boom Wireless Headphones</h3>
+                        <div class="product-price">
+                            <span class="current-price">₹5,499</span>
+                            <span class="original-price">₹6,999</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card" data-category="laptops">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Business Elite Laptop">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Laptop</span>
+                        <h3 class="product-title">Business Elite</h3>
+                        <div class="product-price">
+                            <span class="current-price">₹75,999</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card" data-category="components" data-tags="new">
+                    <div class="product-img">
+                        <span class="product-badge new-badge">New</span>
+                        <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="RTX 4090 Graphics Card">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Component</span>
+                        <h3 class="product-title">RTX 4090 Graphics Card</h3>
+                        <div class="product-price">
+                            <span class="current-price">₹1,89,999</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card" data-category="accessories" data-tags="offer">
+                    <div class="offer-ribbon">10% OFF</div>
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Mechanical Keyboard Pro">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Accessory</span>
+                        <h3 class="product-title">Mechanical Keyboard Pro</h3>
+                        <div class="product-price">
+                            <span class="current-price">₹8,499</span>
+                            <span class="original-price">₹9,499</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Category Filter Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryTabs = document.querySelectorAll('.category-tab');
+            const productCards = document.querySelectorAll('.product-card');
+            
+            categoryTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    categoryTabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-category');
+                    
+                    // Filter products
+                    productCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        const cardTags = card.getAttribute('data-tags');
+                        
+                        if (category === 'all' || 
+                            category === cardCategory || 
+                            (category === 'sale' && cardTags && cardTags.includes('sale')) ||
+                            (category === 'new' && cardTags && cardTags.includes('new'))) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Add to cart functionality
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productCard = this.closest('.product-card');
+                    const productName = productCard.querySelector('.product-title').textContent;
+                    alert(`${productName} added to cart!`);
+                });
+            });
+            
+            // Wishlist functionality
+            const wishlistButtons = document.querySelectorAll('.wishlist-btn');
+            wishlistButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const icon = this.querySelector('i');
+                    if (icon.classList.contains('far')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        icon.style.color = '#e74c3c';
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        icon.style.color = '#95a5a6';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
